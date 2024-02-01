@@ -10,16 +10,16 @@ part 'news_event.dart';
 part 'news_state.dart';
 
 class NewsBloc extends Bloc<NewsEvent, NewsState> {
-
-  NewsBloc({required NewsRepositoryImpl impl})
-      : _repository = impl,
+  NewsBloc({required NewsRepositoryImpl newsRepositoryImpl})
+      : _newsRepositoryImpl = newsRepositoryImpl,
         super(const NewsState()) {
-    getTopHeadLineUsecase = GetTopHeadLineUsecase(_repository);
+    _getTopHeadLineUsecase = GetTopHeadLineUsecase(_newsRepositoryImpl);
+
     on<GetTopHeadlineEvent>(
       (event, emit) => errorHandler(() async {
         // await Future<void>.delayed(Duration(seconds: 5));
         emit(state.copyWith(state: BlocState.loading));
-        final results = await getTopHeadLineUsecase(params: event.queries);
+        final results = await _getTopHeadLineUsecase(params: event.queries);
         emit(
           state.copyWith(
             state: BlocState.success,
@@ -37,7 +37,8 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       ),
     );
   }
-  late final GetTopHeadLineUsecase getTopHeadLineUsecase;
 
-  final NewsRepositoryImpl _repository;
+  late final GetTopHeadLineUsecase _getTopHeadLineUsecase;
+
+  final NewsRepositoryImpl _newsRepositoryImpl;
 }

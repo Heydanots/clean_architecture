@@ -14,7 +14,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => NewsBloc(impl: impl),
+      create: (context) => NewsBloc(newsRepositoryImpl: impl),
       child: MaterialApp(
         theme: buildThemeData(context),
         localizationsDelegates: AppLocalizations.localizationsDelegates,

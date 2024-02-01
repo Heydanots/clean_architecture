@@ -6,6 +6,7 @@ import 'package:clean_architecture/features/news/data/repositories/news_repo_imp
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 void main() async {
@@ -31,11 +32,26 @@ void main() async {
     ),
   );
 
-  final db = await getDatabasesPath();
+  final db = await openDatabase(
+    join(await getDatabasesPath(), 'news.db'),
+    onCreate: (db, version) => db.execute('''
+CREATE TABLE IF NOT EXISTS articles (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    author TEXT,
+    title TEXT,
+    description TEXT,
+    url TEXT,
+    urlToImage TEXT,
+    publishedAt TEXT,
+    content TEXT
+);
+'''),
+  );
   final remoteSource = NewsNetworkRemoteDataSourceImpl(dio: dio);
-  final localSource =
-      NewsLocalRemoteDataSourceImpl(database: await openDatabase(db));
+  final localSource = NewsLocalRemoteDataSourceImpl(database: db);
   final impl = NewsRepositoryImpl(
-      localRemoteSource: localSource, networkRemoteSource: remoteSource);
+    localRemoteSource: localSource,
+    networkRemoteSource: remoteSource,
+  );
   await bootstrap(() => App(impl: impl));
 }

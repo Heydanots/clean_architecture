@@ -36,6 +36,6 @@ void main() async {
   final localSource =
       NewsLocalRemoteDataSourceImpl(database: await openDatabase(db));
   final impl = NewsRepositoryImpl(
-      localRemoteSource: localSource, networkRemoteSource: remoteSource);
+      localRemoteSource: localSource, networkRemoteSource: remoteSource,);
   await bootstrap(() => App(impl: impl));
 }

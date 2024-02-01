@@ -2,7 +2,7 @@ import 'package:clean_architecture/features/news/data/models/article_model.dart'
 import 'package:sqflite/sqflite.dart';
 
 abstract class NewsLocalRemoteSource {
-  NewsLocalRemoteSource({required Database database}) : _database = database;
+  NewsLocalRemoteSource({required Database database}) : _database = database ;
 
   late final Database _database;
 

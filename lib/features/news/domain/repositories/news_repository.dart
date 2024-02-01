@@ -6,7 +6,7 @@ abstract class NewsRepository {
       Connectivity().checkConnectivity();
 
   Future<List<Article>> getTopHeadLine({
-    required Map<String, dynamic> queries,
+    Map<String, dynamic>? queries,
   });
 
   Future<void> saveArticles({required List<Article> articles});

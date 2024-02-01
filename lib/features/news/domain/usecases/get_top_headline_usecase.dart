@@ -10,11 +10,5 @@ class GetTopHeadLineUsecase
 
   @override
   Future<List<Article>> call({Map<String, dynamic>? params}) async =>
-      repository.getTopHeadLine(
-        queries: params ??
-            {
-              'country': 'us',
-              'category': 'business',
-            },
-      );
+      repository.getTopHeadLine(queries: params);
 }
