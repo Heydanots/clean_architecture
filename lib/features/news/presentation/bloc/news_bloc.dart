@@ -67,7 +67,6 @@ class NewsBloc extends HydratedBloc<NewsEvent, NewsState> {
         .map((e) => ArticleModel.fromJson(e as Map<String, dynamic>))
         .map((e) => e.toEntity())
         .groupFoldBy((element) => element.id!, (previous, element) => element);
-    print(articles);
     return NewsState(articlesSaved: articles);
   }
 

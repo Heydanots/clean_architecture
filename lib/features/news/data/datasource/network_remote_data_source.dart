@@ -1,8 +1,9 @@
 import 'package:clean_architecture/features/news/data/models/article_model.dart';
+import 'package:clean_architecture/main_development.dart';
 import 'package:dio/dio.dart';
 
 abstract class NewsNetworkRemoteDataSource {
-  NewsNetworkRemoteDataSource({required Dio dio}) : _dio = dio;
+  NewsNetworkRemoteDataSource({Dio? dio}) : _dio = dio ?? getIt<Dio>();
   final Dio _dio;
 
   Future<List<ArticleModel>> getTopHeadLine(
@@ -11,7 +12,7 @@ abstract class NewsNetworkRemoteDataSource {
 }
 
 class NewsNetworkRemoteDataSourceImpl extends NewsNetworkRemoteDataSource {
-  NewsNetworkRemoteDataSourceImpl({required super.dio});
+  NewsNetworkRemoteDataSourceImpl({super.dio});
 
   @override
   Future<List<ArticleModel>> getTopHeadLine(

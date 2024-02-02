@@ -19,8 +19,6 @@ class NewsRepositoryImpl extends NewsRepository {
   Future<List<ArticleModel>> getTopHeadLine({
     Map<String, dynamic>? queries,
   }) async {
-    // final state = await connectionState;
-    ///TODO: Ajouter une data source pour la connection
     const state = ConnectivityResult.wifi;
     final result = <ArticleModel>[];
 
@@ -44,11 +42,6 @@ class NewsRepositoryImpl extends NewsRepository {
             .toList(),
       );
     }
-
-    // if (state == ConnectivityResult.none) {
-    //   final request = await localRemoteSource.getTopHeadLine(_queries);
-    //   result.addAll(request);
-    // }
 
     return result;
   }
