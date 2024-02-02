@@ -40,23 +40,23 @@ class App extends StatelessWidget {
           ),
           titleTextStyle: Theme.of(context).textTheme.titleLarge,
         ),
-        textButtonTheme: const TextButtonThemeData(
-          style: ButtonStyle(
-            backgroundColor: MaterialStatePropertyAll(blue),
-            foregroundColor: MaterialStatePropertyAll(Colors.white),
-            // padding: MaterialStatePropertyAll(EdgeInsets.all(18)),
-            minimumSize: MaterialStatePropertyAll(Size.fromHeight(45)),
-          ),
-        ),
-        buttonTheme: ButtonThemeData(
-          colorScheme: const ColorScheme.light(
-            primary: Colors.blue,
-            onPrimary: Colors.blue,
-          ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
-        ),
+        // textButtonTheme: const TextButtonThemeData(
+        //   style: ButtonStyle(
+        //     backgroundColor: MaterialStatePropertyAll(blue),
+        //     foregroundColor: MaterialStatePropertyAll(Colors.white),
+        //     // padding: MaterialStatePropertyAll(EdgeInsets.all(18)),
+        //     minimumSize: MaterialStatePropertyAll(Size.fromHeight(45)),
+        //   ),
+        // ),
+        // buttonTheme: ButtonThemeData(
+        //   colorScheme: const ColorScheme.light(
+        //     primary: Colors.blue,
+        //     onPrimary: Colors.blue,
+        //   ),
+        //   shape: RoundedRectangleBorder(
+        //     borderRadius: BorderRadius.circular(8),
+        //   ),
+        // ),
         chipTheme: ChipThemeData(
           backgroundColor: Colors.white,
           selectedColor: blue,

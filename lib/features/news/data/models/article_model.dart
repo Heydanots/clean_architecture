@@ -12,17 +12,19 @@ class ArticleModel extends Article {
     super.content,
   });
 
-  factory ArticleModel.fromJson(Map<String, dynamic> map) => ArticleModel(
-        author: map['author'] as String?,
-        title: map['title'] as String?,
-        description: map['description'] as String?,
-        url: map['url'] as String?,
-        urlToImage: map['urlToImage'] as String?,
-        publishedAt: map['publishedAt'] as String?,
-        content: map['content'] as String?,
+  factory ArticleModel.fromJson(Map<String, dynamic> json) => ArticleModel(
+        id: json['id'] as int?,
+        author: json['author'] as String?,
+        title: json['title'] as String?,
+        description: json['description'] as String?,
+        url: json['url'] as String?,
+        urlToImage: json['urlToImage'] as String?,
+        publishedAt: json['publishedAt'] as String?,
+        content: json['content'] as String?,
       );
 
   Map<String, dynamic> toJson() => {
+        'id': id,
         'author': author,
         'title': title,
         'description': description,
@@ -31,4 +33,15 @@ class ArticleModel extends Article {
         'publishedAt': publishedAt,
         'content': content,
       };
+
+  Article toEntity() => Article(
+        id: id,
+        url: url,
+        urlToImage: urlToImage,
+        title: title,
+        publishedAt: publishedAt,
+        description: description,
+        content: content,
+        author: author,
+      );
 }

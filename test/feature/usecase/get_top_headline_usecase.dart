@@ -1,4 +1,4 @@
-import 'package:clean_architecture/features/news/data/datasources/network_remote_data_source.dart';
+import 'package:clean_architecture/features/news/data/datasource/network_remote_data_source.dart';
 import 'package:clean_architecture/features/news/data/repositories/news_repo_impl.dart';
 import 'package:clean_architecture/features/news/domain/entities/article.dart';
 import 'package:clean_architecture/features/news/domain/usecases/get_top_headline_usecase.dart';
@@ -19,7 +19,8 @@ void main() {
   setUp(() {
     newsNetworkRemoteDataSourceImpl = MockNewsNetworkRemoteDataSourceImpl();
     impl = NewsRepositoryImpl(
-        networkRemoteSource: newsNetworkRemoteDataSourceImpl);
+      networkRemoteSource: newsNetworkRemoteDataSourceImpl,
+    );
     usecase = GetTopHeadLineUsecase(impl);
   });
 
@@ -28,7 +29,6 @@ void main() {
       (realInvocation) async => [],
     );
     final result = await usecase(params: {'country': 'us'});
-    print(result);
 
     expect(result, isA<List<Article>>());
     expect(result, isEmpty);

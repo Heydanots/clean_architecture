@@ -5,7 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:clean_architecture/features/news/data/datasources/network_remote_data_source.dart'
+import 'package:clean_architecture/features/news/data/datasource/network_remote_data_source.dart'
     as _i2;
 import 'package:clean_architecture/features/news/data/models/article_model.dart'
     as _i4;

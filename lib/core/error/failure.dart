@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:either_dart/either.dart';
+import 'package:sqflite/sqflite.dart';
 
 Future<Either<Failure, T>> errorHandler<T>(
   AsyncCallback<T> asyncCallback,
@@ -12,7 +13,10 @@ Future<Either<Failure, T>> errorHandler<T>(
     final error = Failure('${e.runtimeType}', e.message);
     return Left(error);
   } on DioException catch (e) {
-    final error = Failure('${e.runtimeType}', '${e.error}');
+    final error = Failure('${e.runtimeType}', '${e.message}');
+    return Left(error);
+  } on DatabaseException catch (e) {
+    final error = Failure('${e.runtimeType}', '${e.getResultCode()}');
     return Left(error);
   } catch (e) {
     final error = Failure('${e.runtimeType}', '$e');

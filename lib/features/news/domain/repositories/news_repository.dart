@@ -8,6 +8,4 @@ abstract class NewsRepository {
   Future<List<Article>> getTopHeadLine({
     Map<String, dynamic>? queries,
   });
-
-  Future<void> saveArticles({required List<Article> articles});
 }

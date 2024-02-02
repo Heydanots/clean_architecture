@@ -1,12 +1,10 @@
 import 'package:clean_architecture/app/app.dart';
 import 'package:clean_architecture/bootstrap.dart';
-import 'package:clean_architecture/features/news/data/datasources/local_remote_data_source.dart';
-import 'package:clean_architecture/features/news/data/datasources/network_remote_data_source.dart';
+import 'package:clean_architecture/features/news/data/datasource/network_remote_data_source.dart';
 import 'package:clean_architecture/features/news/data/repositories/news_repo_impl.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sqflite/sqflite.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -31,11 +29,9 @@ void main() async {
     ),
   );
 
-  final db = await getDatabasesPath();
   final remoteSource = NewsNetworkRemoteDataSourceImpl(dio: dio);
-  final localSource =
-      NewsLocalRemoteDataSourceImpl(database: await openDatabase(db));
   final impl = NewsRepositoryImpl(
-      localRemoteSource: localSource, networkRemoteSource: remoteSource,);
+    networkRemoteSource: remoteSource,
+  );
   await bootstrap(() => App(impl: impl));
 }

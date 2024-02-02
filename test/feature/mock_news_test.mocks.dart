@@ -5,9 +5,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i3;
 
-import 'package:clean_architecture/features/news/data/datasources/local_remote_data_source.dart'
-    as _i5;
-import 'package:clean_architecture/features/news/data/datasources/network_remote_data_source.dart'
+import 'package:clean_architecture/features/news/data/datasource/network_remote_data_source.dart'
     as _i2;
 import 'package:clean_architecture/features/news/data/models/article_model.dart'
     as _i4;
@@ -44,36 +42,4 @@ class MockNewsNetworkRemoteDataSourceImpl extends _i1.Mock
         returnValueForMissingStub:
             _i3.Future<List<_i4.ArticleModel>>.value(<_i4.ArticleModel>[]),
       ) as _i3.Future<List<_i4.ArticleModel>>);
-}
-
-/// A class which mocks [NewsLocalRemoteDataSourceImpl].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockNewsLocalRemoteDataSourceImpl extends _i1.Mock
-    implements _i5.NewsLocalRemoteDataSourceImpl {
-  @override
-  _i3.Future<List<_i4.ArticleModel>> getTopHeadLine(
-          Map<String, dynamic>? queries) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getTopHeadLine,
-          [queries],
-        ),
-        returnValue:
-            _i3.Future<List<_i4.ArticleModel>>.value(<_i4.ArticleModel>[]),
-        returnValueForMissingStub:
-            _i3.Future<List<_i4.ArticleModel>>.value(<_i4.ArticleModel>[]),
-      ) as _i3.Future<List<_i4.ArticleModel>>);
-
-  @override
-  _i3.Future<void> saveArticles({required List<_i4.ArticleModel>? articles}) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #saveArticles,
-          [],
-          {#articles: articles},
-        ),
-        returnValue: _i3.Future<void>.value(),
-        returnValueForMissingStub: _i3.Future<void>.value(),
-      ) as _i3.Future<void>);
 }

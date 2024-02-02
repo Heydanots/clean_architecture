@@ -15,3 +15,12 @@ class GetTopHeadlineEvent extends NewsEvent {
   @override
   List<Object> get props => [queries];
 }
+
+class SaveArticleEvent extends NewsEvent {
+  const SaveArticleEvent({required this.article});
+
+  final Article article;
+
+  @override
+  List<Object> get props => [article];
+}

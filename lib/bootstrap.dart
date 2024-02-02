@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -25,7 +26,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
     log(details.exceptionAsString(), stackTrace: details.stack);
   };
 
-  Bloc.observer = const AppBlocObserver();
+  // Bloc.observer = const AppBlocObserver();
 
   // Add cross-flavor configuration here
 
