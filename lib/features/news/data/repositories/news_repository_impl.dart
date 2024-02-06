@@ -19,11 +19,10 @@ class NewsRepositoryImpl extends NewsRepository {
   Future<List<ArticleModel>> getTopHeadLine({
     Map<String, dynamic>? queries,
   }) async {
-    const state = ConnectivityResult.wifi;
+    // const state = ConnectivityResult.wifi;
     final result = <ArticleModel>[];
-
-    if (state == ConnectivityResult.wifi ||
-        state == ConnectivityResult.mobile) {
+    // if (state == ConnectivityResult.wifi ||
+    //     state == ConnectivityResult.mobile) {
       final request = await networkRemoteSource.getTopHeadLine(_queries);
       result.addAll(
         request
@@ -41,7 +40,7 @@ class NewsRepositoryImpl extends NewsRepository {
             )
             .toList(),
       );
-    }
+    // }
 
     return result;
   }

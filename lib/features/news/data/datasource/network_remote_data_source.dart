@@ -1,5 +1,5 @@
 import 'package:clean_architecture/features/news/data/models/article_model.dart';
-import 'package:clean_architecture/main_development.dart';
+import 'package:clean_architecture/injection_container.dart';
 import 'package:dio/dio.dart';
 
 abstract class NewsNetworkRemoteDataSource {

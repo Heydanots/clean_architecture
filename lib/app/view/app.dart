@@ -1,5 +1,5 @@
 import 'package:clean_architecture/core/style/colors.dart';
-import 'package:clean_architecture/features/news/data/repositories/news_repo_impl.dart';
+import 'package:clean_architecture/features/news/data/repositories/news_repository_impl.dart';
 import 'package:clean_architecture/features/news/presentation/bloc/news_bloc.dart';
 import 'package:clean_architecture/features/news/presentation/pages/home_page.dart';
 import 'package:clean_architecture/l10n/l10n.dart';

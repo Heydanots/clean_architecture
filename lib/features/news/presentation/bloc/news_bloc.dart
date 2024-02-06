@@ -1,6 +1,6 @@
 import 'package:clean_architecture/core/error/failure.dart';
 import 'package:clean_architecture/features/news/data/models/article_model.dart';
-import 'package:clean_architecture/features/news/data/repositories/news_repo_impl.dart';
+import 'package:clean_architecture/features/news/data/repositories/news_repository_impl.dart';
 import 'package:clean_architecture/features/news/domain/entities/article.dart';
 import 'package:clean_architecture/features/news/domain/usecases/get_top_headline_usecase.dart';
 import 'package:collection/collection.dart';

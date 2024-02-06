@@ -1,5 +1,5 @@
 import 'package:clean_architecture/features/news/data/datasource/network_remote_data_source.dart';
-import 'package:clean_architecture/features/news/data/repositories/news_repo_impl.dart';
+import 'package:clean_architecture/features/news/data/repositories/news_repository_impl.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 
